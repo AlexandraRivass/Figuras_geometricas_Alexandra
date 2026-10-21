@@ -3,11 +3,8 @@ let miss = comprueba.get('miss')
 
 //Comprueba si llegó con error
 if(miss === 'error'){// === -> operador de igualdad estricta
-    alert("El campo 'figuras' era obligatorio.");
+    alert("Debes elegir una figura para continuar.");
 }
-
-
-
 
 
 // const figuritas = document.getElementById("figuras")

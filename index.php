@@ -13,7 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="./validar.php" method="POST">
+    <form action="./validacion/validar.php" method="POST">
         <label for="figuras">Escoge una figura</label>
             <!-- name-> donde guarda el PHP
              id=-> donde guarda el JS-->

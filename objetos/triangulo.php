@@ -32,10 +32,34 @@ class Triangulo extends FiguraGeometrica{
         return $this->lado3;
     }
 
+    // Área (Herón): s = (lado1 + lado2 + lado3) / 2
+    //  área = √( s × (s - lado1) × (s - lado2) × (s - lado3) )
+    // Perímetro: lado1 + lado2 + lado3
+
     //CALCULAR-AREA
+    public function calcularArea(){
+        //s es el semiperímetro
+        $s = ($this->getLado1() + $this->getLado2() + $this->getLado3()) / 2;
+
+        // $this->getTitulo-> palabra suelta: PHP busca un atributo llamado "getTitulo" (no existe)
+        // $this->getTitulo()-> ejecuta el método y devuelve el título
+
+        //√ es la raíz cuadrada ESTO ES sqrt().
+        return round(sqrt($s * ($s - $this->getLado1()) * ($s - $this->getLado2()) * ($s - $this->getLado3())), 2);
+    }
 
     //CALCULAR-PERIMETRO
-
+    public function calcularPerimetro(){
+        return $this->getLado1() + $this->getLado2() + $this->getLado3();
+    }
     //__TOSTRING
+    public function __toString(){
+        return "Tipo de figura: " . $this->getTipoFigura() . "<br>"
+            . "Lado 1: " . $this->getLado1() . "<br>"
+            . "Lado 2: " . $this->getLado2() . "<br>"
+            . "Lado 3: " . $this->getLado3() . "<br>"
+            . "Área: " . $this->calcularArea() . "<br>"
+            . "Perímetro: " . $this->calcularPerimetro();
+    }
 }
 ?>

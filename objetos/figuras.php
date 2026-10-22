@@ -35,7 +35,7 @@
         }  
 
         public function __destruct(){
-            echo "adiós";
+            // echo "adiós";
         }
         //gamificaciom
         function calcularArea(){ 

@@ -23,6 +23,6 @@ $figuras=$_POST['figuras'];
 // -$figuras;   apunta "rectangulo"
 $_SESSION["figura"] = $figuras; 
 
-header("Location: ../figuras.php");
+header("Location: ../lados.php");
 exit();
 ?>

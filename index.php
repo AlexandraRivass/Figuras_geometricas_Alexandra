@@ -3,6 +3,12 @@ session_start();//abre como una libreta de la sesión en esa página
 // ?? "" -> si no hay figura guardada, queda vacío
 $figuraGuardada = $_SESSION["figura"] ?? "";
 
+
+// Mensaje si validar.php nos devuelve aquí por no elegir figura
+$mensajeError = "";
+if (($_GET["miss"] ?? "") == "error") {
+    $mensajeError = "Debes elegir una figura para continuar.";
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +37,7 @@ $figuraGuardada = $_SESSION["figura"] ?? "";
             </select>
         </div>
 
-        <p class="aviso" id="aviso"></p>
+        <p class="aviso" id="aviso" style="color: black;"><?php echo $mensajeError; ?></p>
         <button class="boton" name="submit" id="submit">Enviar</button>
     </form>
 

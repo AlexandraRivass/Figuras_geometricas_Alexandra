@@ -16,6 +16,10 @@ class Triangulo extends FiguraGeometrica{
         $this->lado3 = $lado3;
     }
 
+    public function __destruct(){
+    // echo "adiós";
+    }
+
     //LADO2
     public function setLado2($lado2){
         $this->lado2 = $lado2;
@@ -41,8 +45,7 @@ class Triangulo extends FiguraGeometrica{
         //s es el semiperímetro
         $s = ($this->getLado1() + $this->getLado2() + $this->getLado3()) / 2;
 
-        // $this->getTitulo-> palabra suelta: PHP busca un atributo llamado "getTitulo" (no existe)
-        // $this->getTitulo()-> ejecuta el método y devuelve el título
+        // Los getters llevan paréntesis para ejecutarse; sin ellos PHP buscaría un atributo que no existe.
 
         //√ es la raíz cuadrada ESTO ES sqrt().
         return round(sqrt($s * ($s - $this->getLado1()) * ($s - $this->getLado2()) * ($s - $this->getLado3())), 2);

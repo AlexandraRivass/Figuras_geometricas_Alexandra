@@ -8,7 +8,9 @@ class Circulo extends FiguraGeometrica{
         //parent:es para los datos que ya guarda el padre.
         parent::__construct($tipoFigura,$lado1);
     }
-
+    public function __destruct(){
+        // echo "adiós";
+    }
     // Área: π × radio × radio
     // Perímetro: 2 × π × radio
 

@@ -2,7 +2,7 @@
 require_once "figuras.php";
 class Rectangulo extends FiguraGeometrica{
 
-    protected $lado2;
+    private $lado2;
 
     public function __construct($tipoFigura, $lado1, $lado2){
         //Nuevo atributo
@@ -10,7 +10,9 @@ class Rectangulo extends FiguraGeometrica{
         //lo que hereda
         parent::__construct($tipoFigura, $lado1);
     }
-
+    public function __destruct(){
+        // echo "adiós";
+    }
     //ESTO ES ALTURA
     //--SET-(GUARDA)
     public function setLado2($lado2){

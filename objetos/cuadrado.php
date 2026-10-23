@@ -9,6 +9,11 @@
             parent::__construct($tipoFigura,$lado1);
         }
 
+
+        public function __destruct(){
+        // echo "adiós";
+        }
+        
         //CALCULAR-AREA
         // El área del cuadrado es lado por lado, cojo el lado con el getter porque desde aquí no puedo leerlo directo.
         public function calcularArea(){

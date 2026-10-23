@@ -1,8 +1,8 @@
 <?php
-//() -> los paréntesis EJECUTAN una función.
-//Sin ellos, PHP solo ve una palabra suelta y no hace nada.
-// session_start();
-// header("Location: validar.php")
+session_start();//abre como una libreta de la sesión en esa página
+// ?? "" -> si no hay figura guardada, queda vacío
+$figuraGuardada = $_SESSION["figura"] ?? "";
+
 ?>
 
 <!DOCTYPE html>
@@ -14,23 +14,25 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <form action="./validacion/validar.php" method="POST">
-        <label for="figuras">Escoge una figura</label>
+    <form class="formulario" action="./validacion/validar.php" method="POST">
+        <div class="campo">
+            <label for="figuras">Escoge una figura</label>
             <!-- name-> donde guarda el PHP
              id=-> donde guarda el JS-->
             <select id="figuras" onblur="opciones()" name="figuras">
                 <!--Selected-> es la opcion que viene por defecto de primeras
                 Disabled-> que no se puede marcar  -->
-                <option selected disabled>Selecciona una opcion:</option>
-
-                <option value="triangulo">Triángulo</option>
-                <option value="rectangulo">Rectángulo</option>
-                <option value="cuadrado">Cuadrado</option>
-                <option value="circulo">Círculo</option>
+                <option <?php if($figuraGuardada == "") echo "selected"; ?> disabled>Selecciona una opcion:</option>
+                <!-- pregunta “¿esta opción es la guardada?”Si sí, escribe la palabra selected. Si no, no escribe nadaa -->
+                <option value="triangulo" <?php if($figuraGuardada == "triangulo") echo "selected"; ?>>Triángulo</option>
+                <option value="rectangulo" <?php if($figuraGuardada == "rectangulo") echo "selected"; ?>>Rectángulo</option>
+                <option value="cuadrado" <?php if($figuraGuardada == "cuadrado") echo "selected"; ?>>Cuadrado</option>
+                <option value="circulo" <?php if($figuraGuardada == "circulo") echo "selected"; ?>>Círculo</option>
             </select>
+        </div>
 
-            <p id="aviso"></p>
-        <button name="submit" id="submit">Enviar</button>
+        <p class="aviso" id="aviso"></p>
+        <button class="boton" name="submit" id="submit">Enviar</button>
     </form>
 
     <script src="./validacion/comprobacion.js"></script>
